@@ -26,7 +26,7 @@ private void Start()
 
 private void Move()
 {
-	if (waypointIndex <= waypoints.length - 1)
+	if (waypointIndex <= waypoints.Length - 1)
 {
 transform.position = Vector2.MoveTowards(transform.position,
 waypoints[waypointIndex].transform.position,
