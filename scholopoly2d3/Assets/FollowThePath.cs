@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowThePath1 : MonoBehaviour {
+public class FollowThePath : MonoBehaviour {
 public Transform[] waypoints;
 
 [SerializeField]

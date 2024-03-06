@@ -1,52 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class dice : MonoBehaviour
+public class Dice : MonoBehaviour
 {
-    private Sprite[] DiceSides;
-    private Spriterenderer rend;
+    private Sprite[] diceSides;
+    private SpriteRenderer rend;
     private int whosTurn = 1;
     private bool coroutineAllowed = true;
 
-
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        DiceSides = Resources.LoadAll<Sprite>("DiceSides/");
-        rend.sprite = DiceSides[5];
+        diceSides = Resources.LoadAll<Sprite>("DiceSides/");
+        rend.sprite = diceSides[5]; // Assuming you have 6 sides, change index if needed
     }
 
     private void OnMouseDown()
     {
         if (!GameControl.gameOver && coroutineAllowed)
-            StartCoroutine("RollTheDice")
+            StartCoroutine(RollTheDice());
     }
 
-    private IEnumerato RollTheDice()
+    private IEnumerator RollTheDice()
     {
         coroutineAllowed = false;
         int randomDiceSide = 0;
-        for (int i = 0; i <= 20, i++)
+        for (int i = 0; i < 20; i++) // changed comma to semicolon and corrected condition
         {
-            randomDiceSide = randomDiceSide.Range(0, 6);
-            rend.sprite = DiceSides[randomDiceSide];
+            randomDiceSide = Random.Range(0, 6); // corrected function name and range
+            rend.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
-    }
 
-    GameControl.DiceSideThrown = randomDiceSide + 1;
-    if (whosTurn == 1)
+        GameControl.diceSideThrown = randomDiceSide + 1;
+
+        if (whosTurn == 1)
         {
-        GameControl.MovePlayer(1);
-        } 
-    else if (whosTurn == -1)
-{
-    GameControl.MovePlayer(2);
+            GameControl.MovePlayer(1);
+        }
+        else if (whosTurn == -1)
+        {
+            GameControl.MovePlayer(2);
+        }
+        whosTurn *= -1;
+        coroutineAllowed = true;
+    }
 }
-whosTurn *= -1;
-coroutineAllowed = true;
 
-}
-}
