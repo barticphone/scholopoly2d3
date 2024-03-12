@@ -19,14 +19,14 @@ public class Dice : MonoBehaviour
     private void OnMouseDown()
     {
         if (!GameControl.gameOver && coroutineAllowed)
-            StartCoroutine(RollTheDice());
+            StartCoroutine(RollTheDice);
     }
 
     private IEnumerator RollTheDice()
     {
         coroutineAllowed = false;
         int randomDiceSide = 0;
-        for (int i = 0; i < 20; i++) // changed comma to semicolon and corrected condition
+        for (int i = 0; i <= 20; i++) // changed comma to semicolon and corrected condition
         {
             randomDiceSide = Random.Range(0, 6); // corrected function name and range
             rend.sprite = diceSides[randomDiceSide];

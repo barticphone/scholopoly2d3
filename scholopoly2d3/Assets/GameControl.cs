@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; // Add this line to include the UI namespace
 
@@ -55,6 +53,8 @@ public class GameControl : MonoBehaviour
         if (player1.GetComponent<FollowThePath>().waypointIndex == player1.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
+            player1MoveText.gameObject.SetActive(false);
+            player2MoveText.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<Text>().text = "Player 1 Wins"; // Change GetComponent<Text>() to just text
             gameOver = true;
         }
