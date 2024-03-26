@@ -26,9 +26,9 @@ public class Dice : MonoBehaviour
     {
         coroutineAllowed = false;
         int randomDiceSide = 0;
-        for (int i = 0; i <= 20; i++) // changed comma to semicolon and corrected condition
+        for (int i = 0; i < 20; i++) // changed comma to semicolon and corrected condition
         {
-            randomDiceSide = Random.Range(0, 6); // corrected function name and range
+            randomDiceSide = Random.Range(0, 6);
             rend.sprite = diceSides[randomDiceSide];
             yield return new WaitForSeconds(0.05f);
         }
