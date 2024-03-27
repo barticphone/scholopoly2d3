@@ -30,7 +30,7 @@ public class Dice : MonoBehaviour
         {
             randomDiceSide = Random.Range(0, 6);
             rend.sprite = DiceSides[randomDiceSide];
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         GameControl.diceSideThrown = randomDiceSide + 1;
