@@ -3,7 +3,7 @@ using UnityEngine.UI; // Add this line to include the UI namespace
 
 public class GameControl : MonoBehaviour
 {
-    private static GameObject whoWinsText1, whoWinsText2, player1MoveText, player2MoveText;
+    private static GameObject whoWinsText1, whoWinsText2, player1MoveText, player2MoveText, Vraag1;
     private static GameObject player1, player2;
 
     public static int diceSideThrown = 0;
@@ -19,6 +19,7 @@ public class GameControl : MonoBehaviour
         whoWinsText2 = GameObject.Find("whoWinsText2");
         player1MoveText = GameObject.Find("Player1MoveText");
         player2MoveText = GameObject.Find("Player2MoveText");
+        Vraag1 = GameObject.Find("Vraag1");
 
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
@@ -30,6 +31,7 @@ public class GameControl : MonoBehaviour
         whoWinsText2.gameObject.SetActive(false);
         player1MoveText.gameObject.SetActive(true);
         player2MoveText.gameObject.SetActive(false);
+        Vraag1.gameObject.SetActive(false);
 
     }
 
@@ -57,8 +59,9 @@ public class GameControl : MonoBehaviour
             whoWinsText1.gameObject.SetActive(true);
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(false);
-            
+
             gameOver = true;
+
         }
 
         if (player2.GetComponent<FollowThePath>().waypointIndex == player2.GetComponent<FollowThePath>().waypoints.Length)
@@ -66,9 +69,31 @@ public class GameControl : MonoBehaviour
             whoWinsText2.gameObject.SetActive(true);
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(false);
-            
+
             gameOver = true;
+            
         }
+
+        if (player1StartWaypoint == 1)
+        {
+            Vraag1.gameObject.SetActive(true);
+        }
+
+        if (player2StartWaypoint == 1)
+        {
+            Vraag1.gameObject.SetActive(true);
+        }
+
+        if (player1StartWaypoint == 2)
+        {
+            Vraag1.gameObject.SetActive(true);
+        }
+
+        if (player2StartWaypoint == 2)
+        {
+            Vraag1.gameObject.SetActive(true);
+        }
+
     }
 
     public static void MovePlayer(int playerToMove)
