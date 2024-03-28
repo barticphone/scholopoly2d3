@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class spelregels1 : MonoBehaviour
+public class ikbegrijp1 : MonoBehaviour
 {
-    public void spelregels2()
+    public void ikbegrijp2()
     {
-        SceneManager.LoadScene("Regels");
+        SceneManager.LoadScene("Home Screen");
     }
 
 }
