@@ -1,16 +1,19 @@
-public class FollowThePath : MonoBehaviour
-{
-    public Transform[] waypoints;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-    [SerializeField]
-    private float moveSpeed = 0.5f;
+public class FollowThePath : MonoBehaviour {
+public Transform[] waypoints;
 
-    [HideInInspector]
-    public int waypointIndex = 0;
-    public bool moveAllowed = false;
+[SerializeField]
+private float moveSpeed = 0.5f;
+
+[HideInInspector]
+public int waypointIndex = 0;
+public bool moveAllowed = false;
 
     // Start is called before the first frame update
-    private void Start()
+private void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
     }
@@ -21,17 +24,16 @@ public class FollowThePath : MonoBehaviour
         if (moveAllowed) Move();
     }
 
-    private void Move()
-    {
-        if (waypointIndex <= waypoints.Length - 1)
-        {
-            transform.position = Vector2.MoveTowards(transform.position,
-            waypoints[waypointIndex].transform.position,
-            moveSpeed * Time.deltaTime);
+private void Move()
+{
+	if (waypointIndex <= waypoints.Length - 1)
+{
+transform.position = Vector2.MoveTowards(transform.position,
+waypoints[waypointIndex].transform.position,
+moveSpeed * Time.deltaTime);
 
-            if (transform.position == waypoints[waypointIndex].transform.position)
-            { waypointIndex += 1; }
-        }
-
-    }
+if (transform.position == waypoints[waypointIndex].transform.position)
+{ waypointIndex += 1; }
+}
+}
 }

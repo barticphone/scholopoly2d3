@@ -1,3 +1,6 @@
+using UnityEngine;
+using UnityEngine.UI; // Add this line to include the UI namespace
+
 public class GameControl : MonoBehaviour
 {
     private static GameObject whoWinsText1, whoWinsText2, player1MoveText, player2MoveText;
@@ -49,13 +52,12 @@ public class GameControl : MonoBehaviour
             player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
-
         if (player1.GetComponent<FollowThePath>().waypointIndex == player1.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsText1.gameObject.SetActive(true);
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(false);
-
+            
             gameOver = true;
         }
 
@@ -64,7 +66,7 @@ public class GameControl : MonoBehaviour
             whoWinsText2.gameObject.SetActive(true);
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(false);
-
+            
             gameOver = true;
         }
     }
