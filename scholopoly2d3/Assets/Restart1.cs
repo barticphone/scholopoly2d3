@@ -9,4 +9,5 @@ public class Restart1 : MonoBehaviour
     {
         SceneManager.LoadScene("Board");
     }
+
 }   
