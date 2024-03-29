@@ -589,7 +589,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welkom bij scholopoly
+  m_text: Welkom bij scholopoly! Het ideale spel om op school te spelen. Je kan het
+    makkelijk spelen op je schoollaptop, en is extra leuk met een klasgenoot. Druk
+    op de dobbelsteen om deze te gooien. De speler zet automatisch het aantal stappen
+    van de dobbelsteen. Wie als eerst de finish haalt heeft gewonnen. Succes!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
