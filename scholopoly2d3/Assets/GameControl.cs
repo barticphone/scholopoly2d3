@@ -1,14 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI; // Add this line to include the UI namespace
+using UnityEngine.UI; 
 
 public class GameControl : MonoBehaviour
 {
-    private static GameObject whoWinsText1, whoWinsText2, player1MoveText, player2MoveText, Vraag1;
+    private static GameObject whoWinsText1, whoWinsText2, player1MoveText, player2MoveText, player1Score, player2Score;
     private static GameObject player1, player2;
 
     public static int diceSideThrown = 0;
     public static int player1StartWaypoint = 0;
     public static int player2StartWaypoint = 0;
+    public static int player1Scorepoint = 0;
+    public static int player2Scorepoint = 0;
 
     public static bool gameOver = false;
 
@@ -19,7 +21,11 @@ public class GameControl : MonoBehaviour
         whoWinsText2 = GameObject.Find("whoWinsText2");
         player1MoveText = GameObject.Find("Player1MoveText");
         player2MoveText = GameObject.Find("Player2MoveText");
-        Vraag1 = GameObject.Find("Vraag1");
+
+        player1Score = GameObject.Find("player1Score");
+        player2Score = GameObject.Find("player2Score");
+        player1Score.gameObject.SetActive(true);
+        player2Score.gameObject.SetActive(true);
 
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
@@ -31,7 +37,7 @@ public class GameControl : MonoBehaviour
         whoWinsText2.gameObject.SetActive(false);
         player1MoveText.gameObject.SetActive(true);
         player2MoveText.gameObject.SetActive(false);
-        Vraag1.gameObject.SetActive(false);
+        
 
     }
 
@@ -74,24 +80,25 @@ public class GameControl : MonoBehaviour
             
         }
 
-        if (player1StartWaypoint == 1)
+        if (player1StartWaypoint == 0)
         {
-            Vraag1.gameObject.SetActive(true);
+            player1Score.GetComponent<Text>().text = "0";
+            
         }
 
-        if (player2StartWaypoint == 1)
+        if (player2StartWaypoint == 0)
         {
-            Vraag1.gameObject.SetActive(true);
+            player2Score.GetComponent<Text>().text = "0";
         }
 
         if (player1StartWaypoint == 2)
         {
-            Vraag1.gameObject.SetActive(true);
+          
         }
 
         if (player2StartWaypoint == 2)
         {
-            Vraag1.gameObject.SetActive(true);
+            
         }
 
     }
